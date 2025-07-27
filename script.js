@@ -29,16 +29,14 @@ document.addEventListener('DOMContentLoaded', function() {
         return data;
     }
 
-    function displayWeatherData(weatherData) {
-        if (weatherData && weatherData.main && weatherData.weather && weatherData.weather.length > 0) {
-            cityName.textContent = weatherData.name;
-            temperature.textContent = `${weatherData.main.temp} °C`;
-            description.textContent = weatherData.weather[0].description;
-            weatherInfo.classList.remove('hidden');
-            errorMessage.classList.add('hidden');
-        } else {
-            showErrorMessage();
-        }
+    function displayWeatherData(Data) {
+    console.log(Data);
+    const {name,main,weather} = Data;
+    cityName.textContent = name;
+    temperature.textContent = `${main.temp} °C`;
+    description.textContent = weather[0].description;
+    weatherInfo.classList.remove('hidden');
+    errorMessage.classList.add('hidden');
     }
 
     function showErrorMessage() {
